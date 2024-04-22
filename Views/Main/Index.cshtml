@@ -1,0 +1,103 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model IndexModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Main</title>
+    <style>
+    body {
+        background-color: #333;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        text-align: center;
+        padding-top: 50px;
+    }
+    
+    table {
+        width: 90%;
+        margin: 0 auto;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin-bottom: 30px;
+    }
+    
+    th, td {
+        padding: 12px;
+        border-bottom: 2px solid #fff;
+    }
+    
+    th {
+        background-color: #444;
+    }
+    
+    td {
+        background-color: #666;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #FFD700;
+    }
+   
+    input[type="submit"] {
+        padding: 12px 24px;
+        background-color: #FF4500;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 6px;
+    }
+    </style>
+</head>
+<body>
+<h1>Компанії:</h1>
+<table>
+    <tr>
+        <th>Назва</th>
+        <th>Дохід в рік</th>
+    </tr>
+    @foreach (var item in Model.Companies)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Revenue$</td>
+        </tr>
+    }
+</table>
+
+<h1>Користувачі:</h1>
+<p>
+    <a asp-action="Create" asp-controller="Main">Додати Користувача</a>
+</p>
+
+<table>
+    <tr>
+        <th>Імʼя</th>
+        <th>Прізвище</th>
+        <th>Вік</th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.Users)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Surname</td>
+            <td>@item.Age</td>
+            <td>
+                <a asp-action="Edit" asp-controller="Main" asp-route-id="@item.Id">Редагувати</a>
+            </td>
+            <td>
+                <form asp-controller="Main" asp-action="Delete" method="post" asp-route-id="@item.Id">
+                    <input type="submit" value="Видалити"/>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+</body>
+
+</html>

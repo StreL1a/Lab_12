@@ -1,0 +1,71 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model User
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Edit</title>
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            text-align: center;
+            padding-top: 50px;
+        }
+        
+        form {
+            margin: 0 auto;
+            width: 70%;
+            max-width: 500px;
+            background-color: #444;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            background-color: #666;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+        }
+        
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #FF4500;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+<h2>Редагування даних користувача</h2>
+
+<form asp-action="edit" asp-controller="Main" asp-route-id="@Model.Id">
+    <p>
+        <label asp-for="Name">Імʼя</label><br/>
+        <input type="text" asp-for="Name"/>
+    </p>
+    <p>
+        <label asp-for="Surname">Прізвище</label><br/>
+        <input type="text" asp-for="Surname"/>
+    </p>
+    <p>
+        <label asp-for="Age">Вік</label><br/>
+        <input type="number" asp-for="Age"/>
+    </p>
+    <p>
+        <input type="submit" value="Зберігти"/>
+    </p>
+</form>
+</body>
+</html>

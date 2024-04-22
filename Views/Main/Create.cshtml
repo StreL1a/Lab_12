@@ -1,0 +1,74 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model User
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Додати Користувача</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            text-align: center;
+            padding-top: 50px;
+        }
+        
+        form {
+            margin: 0 auto;
+            width: 70%;
+            max-width: 600px;
+            background-color: #444;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 30px;
+            box-sizing: border-box;
+            background-color: #666;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+        }
+        
+        input[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            background-color: #FF5722;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+<h1>Додати Користувача</h1>
+
+<form asp-action="Create" asp-controller="Main" method="post">
+    <p>
+        <label asp-for="Name">Імʼя</label><br/>
+        <input type="text" asp-for="Name"/>
+    </p>
+    <p>
+        <label asp-for="Surname">Прізвище</label><br/>
+        <input type="text" asp-for="Surname"/>
+    </p>
+    <p>
+        <label asp-for="Age">Вік</label><br/>
+        <input type="number" asp-for="Age"/>
+    </p>
+    <p>
+        <input type="submit" value="Створити"/>
+    </p>
+
+</form>
+
+</body>
+
+</html>
